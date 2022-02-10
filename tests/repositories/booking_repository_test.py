@@ -21,8 +21,8 @@ class TestBookingRepository(unittest.TestCase):
         self.booking_2 = booking_repository.Booking(member_2, gym_class_2, False)
         
     def test_can_save_booking(self):
-        booking_1 = booking_repository.save(self.booking_1)
-        self.assertEqual(booking_1, self.booking_1)
+        booking = booking_repository.save(self.booking_1)
+        self.assertEqual(booking, self.booking_1)
 
     def test_can_select_all_bookings(self):
         booking_1 = booking_repository.save(self.booking_1)
