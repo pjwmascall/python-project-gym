@@ -4,7 +4,7 @@ class Booking:
         self, 
         member, 
         gym_class, 
-        attended = None, 
+        attended, 
         id = None
         ):
         self.member = member

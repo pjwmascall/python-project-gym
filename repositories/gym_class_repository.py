@@ -39,14 +39,15 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         gym_class = GymClass(
-        row['class_name'],
-        row['instructor'],
-        row['room'],
-        row['capacity'],
-        row['class_date'],
-        row['class_start'],
-        row['class_end'],
-        row['id']
+            row['class_name'],
+            row['instructor'],
+            row['room'],
+            row['capacity'],
+            row['class_date'],
+            row['class_start'],
+            row['class_end'],
+            row['is_active'],
+            row['id']
         )
         gym_classes.append(gym_class)
     return gym_classes
@@ -59,14 +60,16 @@ def select(id):
     result = run_sql(sql, values)[0]
     if result is not None:
         gym_class = GymClass(
-        result['class_name'],
-        result['instructor'],
-        result['room'],
-        result['capacity'],
-        result['class_date'],
-        result['class_start'],
-        result['class_end'],
-        result['id'])
+            result['class_name'],
+            result['instructor'],
+            result['room'],
+            result['capacity'],
+            result['class_date'],
+            result['class_start'],
+            result['class_end'],
+            result['is_active'],
+            result['id']
+        )
     return gym_class
 
 

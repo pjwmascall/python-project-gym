@@ -20,7 +20,7 @@ def save(booking):
         booking.gym_class.id,
         booking.attended
         ]
-    results = run_sql( sql, values )
+    results = run_sql(sql, values)
     booking.id = results[0]['id']
     return booking
 
@@ -33,10 +33,10 @@ def select_all():
         member = member_repository.select(row['member_id'])
         gym_class = gym_class_repository.select(row['class_id'])
         booking = Booking(
-            member, 
-            gym_class, 
-            row['attended'], 
-            row['id']
+                member, 
+                gym_class, 
+                row['attended'], 
+                row['id']
             )
         bookings.append(booking)
     return bookings
