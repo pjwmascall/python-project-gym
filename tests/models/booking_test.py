@@ -1,4 +1,5 @@
 import unittest
+
 from models.booking import *
 from models.member import *
 from models.gym_class import *

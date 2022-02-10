@@ -1,6 +1,17 @@
 class GymClass:
 
-    def __init__(self, class_name, instructor, room, capacity, class_date, class_start, class_end, is_active, id = None):
+    def __init__(
+        self,
+        class_name,
+        instructor,
+        room,
+        capacity,
+        class_date,
+        class_start,
+        class_end,
+        is_active,
+        id = None
+        ):
         self.class_name = class_name
         self.instructor = instructor
         self.room = room

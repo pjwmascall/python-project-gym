@@ -1,4 +1,5 @@
 import unittest
+
 from models.member import *
 
 class TestMember(unittest.TestCase):

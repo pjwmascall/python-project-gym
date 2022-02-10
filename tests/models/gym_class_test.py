@@ -1,4 +1,5 @@
 import unittest
+
 from models.gym_class import *
 
 class TestGymClass(unittest.TestCase):

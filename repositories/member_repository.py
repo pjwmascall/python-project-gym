@@ -33,12 +33,12 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         member = Member(
-        row['first_name'],
-        row['last_name'],
-        row['home_address'],
-        row['membership_type'],
-        row['is_active'],
-        row['id']
+            row['first_name'],
+            row['last_name'],
+            row['home_address'],
+            row['membership_type'],
+            row['is_active'],
+            row['id']
         )
         members.append(member)
     return members
@@ -51,12 +51,13 @@ def select(id):
     result = run_sql(sql, values)[0]
     if result is not None:
         member = Member(
-        result['first_name'],
-        result['last_name'],
-        result['home_address'],
-        result['membership_type'],
-        result['is_active'],
-        result['id'])
+            result['first_name'],
+            result['last_name'],
+            result['home_address'],
+            result['membership_type'],
+            result['is_active'],
+            result['id']
+        )
     return member
 
 
