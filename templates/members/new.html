@@ -3,5 +3,32 @@
 {% block content %}
 
 <p>New member page</p>
+
+<form action="/members" method="post">
+    
+    <label for="first_name">First name:</label>
+    <input type="text" id="fist_name" name="first_name" required="required">
+
+    <label for="last_name">Last name:</label>
+    <input type="text" id="last_name" name="last_name" required="required">
+
+    <label for="home_address">Home address:</label>
+    <input type="text" id="home_address" name="home_address" required="required">
+
+    <p>Membership:</p>
+    <label for="standard">Standard</label>
+    <input type="radio" id="standard" name="membership_type" value="Standard" required="required">
+    <label for="premium">Premium</label>
+    <input type="radio" id="premium" name="membership_type" value="Premium" required="required">
+
+    <p>Is currently active?</p>
+    <label for="true">Yes</label>
+    <input type="radio" id="true" name="is_active" value="True" required="required">
+    <label for="false">No</label>
+    <input type="radio" id="false" name="is_active" value="False" required="required">
+
+    <button class="add" type="submit">Add member</button>
+
+</form>
     
 {% endblock %}
