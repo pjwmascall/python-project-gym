@@ -3,5 +3,38 @@
 {% block content %}
 
 <p>Edit class page</p>
+
+<form action="/classes" method="post">
+    
+    <label for="class_name">Class name:</label>
+    <input type="text" id="class_name" name="class_name" required="required" value="{{gym_class.class_name}}">
+
+    <label for="instructor">Instructor:</label>
+    <input type="text" id="instructor" name="instructor" required="required" value="{{gym_class.instructor}}">
+
+    <label for="room">Room:</label>
+    <input type="text" id="room" name="room" required="required" value="{{gym_class.room}}">
+
+    <label for="capacity">Capacity:</label>
+    <input type="number" id="capacity" name="capacity" required="required" value="{{gym_class.capacity}}">
+
+    <label for="class_date">Class date:</label>
+    <input type="date" id="class_date" name="class_date" required="required" value="{{gym_class.class_date}}">
+
+    <label for="class_start">Start time:</label>
+    <input type="time" id="class_start" name="class_start" required="required" value="{{gym_class.class_start}}">
+
+    <label for="class_end">End time:</label>
+    <input type="time" id="class_end" name="class_end" required="required" value="{{gym_class.class_end}}">
+
+    <p>Is currently active?</p>
+    <label for="true">Yes</label>
+    <input type="radio" id="true" name="is_active" value="True" required="required" {% if gym_class.is_active == True %}checked="checked"{% endif %}>
+    <label for="false">No</label>
+    <input type="radio" id="false" name="is_active" value="False" required="required" {% if gym_class.is_active == False %}checked="checked"{% endif %}>
+
+    <button type="submit">Edit class</button>
+
+</form>
     
 {% endblock %}

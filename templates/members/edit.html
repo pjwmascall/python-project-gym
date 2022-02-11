@@ -3,5 +3,32 @@
 {% block content %}
 
 <p>Edit member page</p>
+
+<form action="/members" method="post">
+    
+    <label for="first_name">First name:</label>
+    <input type="text" id="first_name" name="first_name" required="required" value="{{member.first_name}}">
+
+    <label for="last_name">Last name:</label>
+    <input type="text" id="last_name" name="last_name" required="required" value="{{member.last_name}}">
+
+    <label for="home_address">Home address:</label>
+    <input type="text" id="home_address" name="home_address" required="required" value="{{member.home_address}}">
+
+    <p>Membership:</p>
+    <label for="standard">Standard</label>
+    <input type="radio" id="standard" name="membership_type" value="Standard" required="required" {% if member.membership_type == 'Standard' %}checked="checked"{% endif %}>
+    <label for="premium">Premium</label>
+    <input type="radio" id="premium" name="membership_type" value="Premium" required="required" {% if member.membership_type == 'Premium' %}checked="checked"{% endif %}>
+
+    <p>Is currently active?</p>
+    <label for="true">Yes</label>
+    <input type="radio" id="true" name="is_active" value="True" required="required" {% if member.is_active == True %}checked="checked"{% endif %}>
+    <label for="false">No</label>
+    <input type="radio" id="false" name="is_active" value="False" required="required" {% if member.is_active == False %}checked="checked"{% endif %}>
+
+    <button type="submit">Edit member</button>
+
+</form>
     
 {% endblock %}
