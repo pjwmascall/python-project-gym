@@ -2,10 +2,14 @@
 
 {% block content %}
 
+<p>List classes page</p>
+
 {% for gym_class in gym_classes  %}
 
-{{gym_class.class_name}}
+<a href="/classes/{{gym_class.id}}">{{gym_class.class_name}}</a>
     
 {% endfor %}
+
+<a href="/classes/new">New class</a>
 
 {% endblock %}

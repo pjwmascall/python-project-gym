@@ -2,10 +2,14 @@
 
 {% block content %}
 
+<p>List members page</p>
+
 {% for member in members  %}
 
-{{member.first_name}}
+<a href="/members/{{member.id}}">{{member.first_name}}</a>
     
 {% endfor %}
+
+<a href="/members/new">New member</a>
 
 {% endblock %}

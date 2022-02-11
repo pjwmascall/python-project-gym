@@ -17,7 +17,7 @@ def show_gym_class(id):
 
 @gym_classes_blueprint.route('/classes/new', methods = ['GET'])
 def new_gym_class():
-    return render_template('member/new.html')
+    return render_template('classes/new.html')
 
 @gym_classes_blueprint.route('/classes/<id>/edit', methods = ['GET'])
 def edit_gym_class(id):
