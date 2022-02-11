@@ -40,7 +40,7 @@ def edit_gym_class(id):
     gym_class = gym_class_repository.select(id)
     return render_template('classes/edit.html', gym_class = gym_class)
 
-@gym_classes_blueprint.route('/classes/<id>', methods=['POST'])
+@gym_classes_blueprint.route('/classes/<id>', methods = ['POST'])
 def update_gym_class(id):
     class_name = request.form['class_name']
     instructor = request.form['instructor']
@@ -50,6 +50,6 @@ def update_gym_class(id):
     class_start = request.form['class_start']
     class_end = request.form['class_end']
     is_active = request.form['is_active']
-    gym_class = GymClass(class_name, instructor, room, capacity, class_date, class_start, class_end, is_active)
+    gym_class = GymClass(class_name, instructor, room, capacity, class_date, class_start, class_end, is_active, id)
     gym_class_repository.update(gym_class)
     return redirect('/classes')

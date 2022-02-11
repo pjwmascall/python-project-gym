@@ -37,13 +37,13 @@ def edit_member(id):
     member = member_repository.select(id)
     return render_template('members/edit.html', member = member)
 
-@members_blueprint.route('/members/<id>', methods=['POST'])
+@members_blueprint.route('/members/<id>', methods = ['POST'])
 def update_member(id):
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     home_address = request.form['home_address']
     membership_type = request.form['membership_type']
     is_active = request.form['is_active']
-    member = Member(first_name, last_name, home_address, membership_type, is_active)
+    member = Member(first_name, last_name, home_address, membership_type, is_active, id)
     member_repository.update(member)
     return redirect('/members')

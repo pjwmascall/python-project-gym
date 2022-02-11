@@ -1,5 +1,7 @@
 from db.run_sql import run_sql
+
 from models.booking import Booking
+
 import repositories.member_repository as member_repository
 import repositories.gym_class_repository as gym_class_repository
 
@@ -7,7 +9,7 @@ import repositories.gym_class_repository as gym_class_repository
 def save(booking):
     sql = """
         INSERT INTO
-        bookings(
+        bookings (
             member_id,
             class_id,
             attended
@@ -23,6 +25,26 @@ def save(booking):
     results = run_sql(sql, values)
     booking.id = results[0]['id']
     return booking
+
+
+def update(booking):
+    sql = """
+        UPDATE bookings 
+        SET (
+            member_id,
+            class_id,
+            attended
+            )
+        = (%s, %s, %s)
+    WHERE id = %s
+    """
+    values = [
+        booking.member.id,
+        booking.gym_class.id,
+        booking.attended,
+        booking.id
+        ]
+    run_sql(sql, values)
 
 
 def select_all():

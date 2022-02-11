@@ -1,11 +1,12 @@
 from db.run_sql import run_sql
+
 from models.member import Member
 
 
 def save(member):
     sql = """
         INSERT INTO
-        members(
+        members (
             first_name,
             last_name,
             home_address,
@@ -25,6 +26,31 @@ def save(member):
     results = run_sql(sql, values)
     member.id = results[0]['id']
     return member
+
+
+def update(member):
+    sql = """
+        UPDATE members 
+        SET (
+            first_name,
+            last_name,
+            home_address,
+            membership_type,
+            is_active
+            )
+        = (%s, %s, %s, %s, %s)
+    WHERE id = %s
+    """
+    values = [
+        member.first_name,
+        member.last_name, 
+        member.home_address,
+        member.membership_type,
+        member.is_active,
+        member.id
+        ]
+    run_sql(sql, values)
+
 
 
 def select_all():

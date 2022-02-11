@@ -4,7 +4,7 @@
 
 <p>Edit member page</p>
 
-<form action="/members" method="post">
+<form action="/members/{{member.id}}" method="post">
     
     <label for="first_name">First name:</label>
     <input type="text" id="first_name" name="first_name" required="required" value="{{member.first_name}}">
