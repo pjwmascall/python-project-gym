@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% for gym_class in gym_classes  %}
+
+{{gym_class.class_name}}
+    
+{% endfor %}
+
+{% endblock %}
