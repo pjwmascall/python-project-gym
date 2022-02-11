@@ -2,22 +2,22 @@
 
 A full-stack Flask project creating a gym membership/management system
 
-### Run project
+#### Run project
 
 flask run
 
-### Create database
+#### Create database
 
 createdb gym
 
-### Create database tables
+#### Create database tables
 
 psql -d gym -f db/gym.sql
 
-### Seed database
+#### Seed database
 
 python3 console.py
 
-### Run tests (will recreate database tables)
+#### Run tests (will recreate database tables)
 
 python3 run_tests.py
