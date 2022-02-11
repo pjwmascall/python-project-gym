@@ -5,5 +5,7 @@
 <p>Member show page</p>
 <a href="/members/{{member.id}}/edit">{{member.first_name}}</a>
 {{member.__dict__}}
+
+<form action="/members/{{member.id}}/delete" method="post"><button type="submit">Delete</button></form>
     
 {% endblock %}
