@@ -3,5 +3,38 @@
 {% block content %}
 
 <p>New class page</p>
+
+<form action="/classes" method="post">
+    
+    <label for="class_name">Class name:</label>
+    <input type="text" id="class_name" name="class_name" required="required">
+
+    <label for="instructor">Instructor:</label>
+    <input type="text" id="instructor" name="instructor" required="required">
+
+    <label for="room">Room:</label>
+    <input type="text" id="room" name="room" required="required">
+
+    <label for="capacity">Capacity:</label>
+    <input type="number" id="capacity" name="capacity" required="required">
+
+    <label for="class_date">Class date:</label>
+    <input type="date" id="class_date" name="class_date" required="required">
+
+    <label for="class_start">Start time:</label>
+    <input type="time" id="class_start" name="class_start" required="required">
+
+    <label for="class_end">End time:</label>
+    <input type="time" id="class_end" name="class_end" required="required">
+
+    <p>Is currently active?</p>
+    <label for="true">Yes</label>
+    <input type="radio" id="true" name="is_active" value="True" required="required">
+    <label for="false">No</label>
+    <input type="radio" id="false" name="is_active" value="False" required="required">
+
+    <button class="add" type="submit">Add class</button>
+
+</form>
     
 {% endblock %}
