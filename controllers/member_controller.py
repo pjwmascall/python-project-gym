@@ -1,5 +1,4 @@
-from flask import Flask, render_template, request, redirect
-from flask import Blueprint
+from flask import Flask, Blueprint, render_template, request, redirect
 
 from models.member import Member
 
