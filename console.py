@@ -1,4 +1,4 @@
-import pdb
+# import pdb
 import os
 
 from models.member import Member
@@ -18,12 +18,14 @@ member_repository.save(member_2)
 
 gym_class_1 = GymClass('Yoga', 'Judith', 'F11', 20, '2022-01-21', '09:30:00', '10:30:00', True)
 gym_class_2 = GymClass('Boxing', 'George', 'S09', 30, '2022-01-20', '15:30:00', '16:30:00', True)
+gym_class_3 = GymClass('Yoga', 'Judith', 'F11', 20, '2023-02-12', '09:30:00', '13:30:00', False)
 gym_class_repository.save(gym_class_1)
 gym_class_repository.save(gym_class_2)
+gym_class_repository.save(gym_class_3)
 
 booking_1 = booking_repository.Booking(member_1, gym_class_1, True)
 booking_2 = booking_repository.Booking(member_2, gym_class_2, False)
 booking_repository.save(booking_1)
 booking_repository.save(booking_2)
 
-pdb.set_trace()
+# pdb.set_trace()

@@ -84,6 +84,34 @@ def select_all():
     return gym_classes
 
 
+def select_upcoming():
+    gym_classes = []
+    sql = """
+    SELECT * FROM gym_classes 
+    WHERE class_date > CURRENT_DATE
+    OR (
+        class_date = CURRENT_DATE
+        AND
+        class_start >= CURRENT_TIME
+        )
+    """
+    results = run_sql(sql)
+    for row in results:
+        gym_class = GymClass(
+            row['class_name'],
+            row['instructor'],
+            row['room'],
+            row['capacity'],
+            row['class_date'],
+            row['class_start'],
+            row['class_end'],
+            row['is_active'],
+            row['id']
+        )
+        gym_classes.append(gym_class)
+    return gym_classes
+
+
 def select(id):
     gym_class = None
     sql = "SELECT * FROM gym_classes WHERE id = %s"

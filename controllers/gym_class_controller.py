@@ -9,7 +9,11 @@ gym_classes_blueprint = Blueprint('gym_classes', __name__)
 
 @gym_classes_blueprint.route('/classes', methods = ['GET'])
 def show_gym_classes():
-    gym_classes = gym_class_repository.select_all()
+    filter = request.args.get('filter')
+    if filter == None:
+        gym_classes = gym_class_repository.select_all()
+    if filter == 'upcoming':
+        gym_classes = gym_class_repository.select_upcoming()
     return render_template('classes/index.html', gym_classes = gym_classes)
 
 @gym_classes_blueprint.route('/classes/<id>', methods = ['GET'])
