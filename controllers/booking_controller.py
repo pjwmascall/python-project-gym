@@ -24,7 +24,7 @@ def new_booking():
     gym_classes = gym_class_repository.select_all()
     return render_template('bookings/new.html', members = members, gym_classes = gym_classes)
 
-@bookings_blueprint.route('/members', methods = ['POST'])
+@bookings_blueprint.route('/bookings', methods = ['POST'])
 def create_booking():
     member_id = request.form['member_id']
     gym_class_id = request.form['gym_class_id']

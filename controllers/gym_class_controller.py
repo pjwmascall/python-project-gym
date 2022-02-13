@@ -19,7 +19,7 @@ def show_gym_classes():
 @gym_classes_blueprint.route('/classes/<id>', methods = ['GET'])
 def show_gym_class(id):
     gym_class = gym_class_repository.select(id)
-    bookings = booking_repository.select_all_members(gym_class.id)
+    bookings = booking_repository.select_all_bookings_by_gym_class(gym_class.id)
     return render_template('classes/show.html', gym_class = gym_class, bookings = bookings)
 
 @gym_classes_blueprint.route('/classes/new', methods = ['GET'])

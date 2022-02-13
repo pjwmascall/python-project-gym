@@ -64,7 +64,7 @@ def select_all():
     return bookings
 
 
-def select_all_members(gym_class_id):
+def select_all_bookings_by_gym_class(gym_class_id):
     bookings = []
     sql = """
     SELECT bookings.* FROM bookings

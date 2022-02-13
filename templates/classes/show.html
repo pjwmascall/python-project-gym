@@ -12,7 +12,8 @@
 
 {% for booking in bookings %}
 
-{{booking.__dict__}}
+<a href="/members/{{booking.member.id}}">{{booking.member.first_name}}</a>
+{{booking.member.__dict__}}
     
 {% endfor %}
     
