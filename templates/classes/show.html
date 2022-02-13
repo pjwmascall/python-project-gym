@@ -7,5 +7,13 @@
 {{gym_class.__dict__}}
 
 <form action="/classes/{{gym_class.id}}/delete" method="post"><button type="submit">Delete</button></form>
+
+<p>Members booked:</p>
+
+{% for booking in bookings %}
+
+{{booking.__dict__}}
+    
+{% endfor %}
     
 {% endblock %}

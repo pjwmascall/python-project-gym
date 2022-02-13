@@ -3,6 +3,7 @@ from flask import Flask, Blueprint, render_template, request, redirect
 from models.gym_class import GymClass
 
 import repositories.gym_class_repository as gym_class_repository
+import repositories.booking_repository as booking_repository
 
 gym_classes_blueprint = Blueprint('gym_classes', __name__)
 
@@ -18,7 +19,8 @@ def show_gym_classes():
 @gym_classes_blueprint.route('/classes/<id>', methods = ['GET'])
 def show_gym_class(id):
     gym_class = gym_class_repository.select(id)
-    return render_template('classes/show.html', gym_class = gym_class)
+    bookings = booking_repository.select_all_members(gym_class.id)
+    return render_template('classes/show.html', gym_class = gym_class, bookings = bookings)
 
 @gym_classes_blueprint.route('/classes/new', methods = ['GET'])
 def new_gym_class():

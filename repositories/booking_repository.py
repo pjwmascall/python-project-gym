@@ -64,6 +64,22 @@ def select_all():
     return bookings
 
 
+def select_all_members(gym_class_id):
+    bookings = []
+    sql = """
+    SELECT bookings.* FROM bookings
+    WHERE class_id = %s
+    """
+    values = [gym_class_id]
+    results = run_sql(sql, values)
+    for row in results:
+        member = member_repository.select(row['member_id'])
+        gym_class = gym_class_repository.select(gym_class_id)
+        booking = Booking(member, gym_class, row['attended'], row['id'])
+        bookings.append(booking)
+    return bookings
+
+
 def select(id):
     booking = None
     sql = "SELECT * FROM bookings WHERE id = %s"
