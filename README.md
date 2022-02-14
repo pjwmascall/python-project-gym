@@ -14,7 +14,7 @@ createdb gym
 
 psql -d gym -f db/gym.sql
 
-#### Seed database
+#### Seed database (will recreate database tables)
 
 python3 console.py
 
